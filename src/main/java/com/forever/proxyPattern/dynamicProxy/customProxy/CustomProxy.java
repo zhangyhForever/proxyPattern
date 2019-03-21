@@ -1,11 +1,13 @@
 package com.forever.proxyPattern.dynamicProxy.customProxy;
 
 import javax.tools.JavaCompiler;
+import javax.tools.JavaFileObject;
 import javax.tools.StandardJavaFileManager;
 import javax.tools.ToolProvider;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 /**
  *
@@ -26,18 +28,25 @@ public class CustomProxy {
 
             //保存java文件到磁盘
             File file = saveJavaFile(src);
+            System.out.println("javaFile======"+file.getPath());
 
-            //手动编译生成的java文件
+            //手动生成的java文件
             JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
 
-            //文件管理器
+            //标准文件管理器
             StandardJavaFileManager manager = compiler.getStandardFileManager(null, null, null);
-            manager.getJavaFileObjects(file);
+            Iterable iterable = manager.getJavaFileObjects(file);
 
             //创建编译任务
-            compiler.getTask(null, manager,null, null, null, null);
+            JavaCompiler.CompilationTask task = compiler.getTask(null, manager, null, null, null, iterable);
+            task.call();
+            manager.close();
 
-
+            //编译生成的.class文件加载到JVM中来
+            Class proxyClass = loader.findClass("$Proxy0");
+            Constructor constructor = proxyClass.getConstructor(CustomInvocationHandler.class);
+            file.delete();
+            return constructor.newInstance(h);
         } catch (Exception e){
             e.printStackTrace();
         }

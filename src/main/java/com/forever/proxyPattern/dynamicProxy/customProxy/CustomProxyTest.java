@@ -17,6 +17,8 @@ public class CustomProxyTest {
 
             customMeipo. findLove();
 
+//            System.out.println(CustomProxyTest.class.getPackage().getName());
+
         } catch (Exception e){
             e.printStackTrace();
         }
