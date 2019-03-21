@@ -1,0 +1,97 @@
+// Decompiled by DJ v3.7.7.81 Copyright 2004 Atanas Neshkov  Date: 2019/3/21 16:17:46
+// Home Page : http://members.fortunecity.com/neshkov/dj.html  - Check often for new version!
+// Decompiler options: packimports(3) 
+
+import com.forever.proxyPattern.dynamicProxy.Persion;
+import java.lang.reflect.*;
+
+public final class $Proxy0 extends Proxy
+    implements Persion
+{
+
+    public $Proxy0(InvocationHandler invocationhandler)
+    {
+        super(invocationhandler);
+    }
+
+    public final boolean equals(Object obj)
+    {
+        try
+        {
+            return ((Boolean)super.h.invoke(this, m1, new Object[] {
+                obj
+            })).booleanValue();
+        }
+        catch(Error _ex) { }
+        catch(Throwable throwable)
+        {
+            throw new UndeclaredThrowableException(throwable);
+        }
+    }
+
+    public final void findLove()
+    {
+        try
+        {
+            super.h.invoke(this, m3, null);
+            return;
+        }
+        catch(Error _ex) { }
+        catch(Throwable throwable)
+        {
+            throw new UndeclaredThrowableException(throwable);
+        }
+    }
+
+    public final String toString()
+    {
+        try
+        {
+            return (String)super.h.invoke(this, m2, null);
+        }
+        catch(Error _ex) { }
+        catch(Throwable throwable)
+        {
+            throw new UndeclaredThrowableException(throwable);
+        }
+    }
+
+    public final int hashCode()
+    {
+        try
+        {
+            return ((Integer)super.h.invoke(this, m0, null)).intValue();
+        }
+        catch(Error _ex) { }
+        catch(Throwable throwable)
+        {
+            throw new UndeclaredThrowableException(throwable);
+        }
+    }
+
+    private static Method m1;
+    private static Method m3;
+    private static Method m2;
+    private static Method m0;
+
+    static 
+    {
+        try
+        {
+            m1 = Class.forName("java.lang.Object").getMethod("equals", new Class[] {
+                Class.forName("java.lang.Object")
+            });
+            m3 = Class.forName("com.forever.proxyPattern.dynamicProxy.Persion").getMethod("findLove", new Class[0]);
+            m2 = Class.forName("java.lang.Object").getMethod("toString", new Class[0]);
+            m0 = Class.forName("java.lang.Object").getMethod("hashCode", new Class[0]);
+        }
+        catch(NoSuchMethodException nosuchmethodexception)
+        {
+            throw new NoSuchMethodError(nosuchmethodexception.getMessage());
+        }
+        catch(ClassNotFoundException classnotfoundexception)
+        {
+            throw new NoClassDefFoundError(classnotfoundexception.getMessage());
+        }
+    }
+}
