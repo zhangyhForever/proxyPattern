@@ -18,11 +18,11 @@ public class DbRouteTest {
         OrderService service = new OrderServiceImpl();
         OrderService orderService = new OrderServiceImplProxy(service);
         Order order = new Order();
-        order.setCreatetime(new Date().getTime());
+        order.setCreateTime(new Date().getTime());
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date date = sdf.parse("2017-10-12");
-        order.setCreatetime(date.getTime());
+        order.setCreateTime(date.getTime());
 
 
 

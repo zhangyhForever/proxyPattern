@@ -24,8 +24,8 @@ public class OrderServiceImplProxy implements OrderService {
     }
 
     public int createOrder(Order order) {
-        Long createtime = order.getCreatetime();
-        int dbRoute = Integer.valueOf(yearFormat.format(new Date(createtime)));
+        Long createTime = order.getCreateTime();
+        int dbRoute = Integer.valueOf(yearFormat.format(new Date(createTime)));
         System.out.println("数据源更换，使用数据源【DB_" + dbRoute+"】");
         DynamicDataSourceEntity.set(dbRoute);
 

@@ -21,11 +21,11 @@ public class dynamicProxyTest {
             jdkMeipo. findLove();
 
             //将代理类生成文件保存
-            byte[] bytes = ProxyGenerator.generateProxyClass("$Proxy0",new Class[]{Persion.class});
+           /* byte[] bytes = ProxyGenerator.generateProxyClass("$Proxy0",new Class[]{Persion.class});
             FileOutputStream fos = new FileOutputStream("./$Proxy0.class");
             fos.write(bytes);
             fos.flush();
-            fos.close();
+            fos.close();*/
         } catch (Exception e){
             e.printStackTrace();
         }

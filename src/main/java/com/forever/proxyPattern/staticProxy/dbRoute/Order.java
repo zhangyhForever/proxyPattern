@@ -22,11 +22,11 @@ public class Order {
         OrderInfo = orderInfo;
     }
 
-    public Long getCreatetime() {
+    public Long getCreateTime() {
         return createtime;
     }
 
-    public void setCreatetime(Long createtime) {
+    public void setCreateTime(Long createtime) {
         this.createtime = createtime;
     }
 
